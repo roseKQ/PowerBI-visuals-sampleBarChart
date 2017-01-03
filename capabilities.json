@@ -1,32 +1,50 @@
 {
     "dataRoles": [
         {
-            "displayName": "Category Data",
+            "displayName": "Name",
             "name": "category",
-            "kind": "Grouping"
+            "kind": 0
         },
         {
-            "displayName": "Measure Data",
+            "displayName": "Uniform Mark",
             "name": "measure",
-            "kind": "Measure"
+            "kind": 1
+        },
+        {
+            "displayName": "Grade Boundary for an A",
+            "name": "measureA",
+            "kind": 1
+        },
+        {
+            "displayName": "Grade Boundary for a B",
+            "name": "measureB",
+            "kind": 1
+        },
+        {
+            "displayName": "Grade Boundary for a C",
+            "name": "measureC",
+            "kind": 1
+        },
+        {
+            "displayName": "Grade Boundary for a D",
+            "name": "measureD",
+            "kind": 1
+        },
+        {
+            "displayName": "Grade Boundary for a E",
+            "name": "measureE",
+            "kind": 1
         }
     ],
     "dataViewMappings": [
         {
-            "conditions": [
-                {
-                    "category": {
-                        "max": 1
-                    },
-                    "measure": {
-                        "max": 1
-                    }
-                }
-            ],
             "categorical": {
                 "categories": {
                     "for": {
                         "in": "category"
+                    },
+                    "dataReductionAlgorithm": {
+                        "top": {}
                     }
                 },
                 "values": {
@@ -34,6 +52,31 @@
                         {
                             "bind": {
                                 "to": "measure"
+                            }
+                        },
+                        {
+                            "bind": {
+                                "to": "measureA"
+                            }
+                        },
+                        {
+                            "bind": {
+                                "to": "measureB"
+                            }
+                        },
+                        {
+                            "bind": {
+                                "to": "measureC"
+                            }
+                        },
+                        {
+                            "bind": {
+                                "to": "measureD"
+                            }
+                        },
+                        {
+                            "bind": {
+                                "to": "measureE"
                             }
                         }
                     ]
@@ -43,39 +86,41 @@
     ],
     "objects": {
         "enableAxis": {
+            
             "displayName": "Enable Axis",
             "properties": {
                 "show": {
                     "displayName": "Enable Axis",
-                    "type": { "bool": true }
-                }
-            }
-        },
-        "colorSelector": {
-            "displayName": "Data Colors",
-            "properties": {
-                "fill": {
-                    "displayName": "Color",
                     "type": {
-                        "fill": {
-                            "solid": {
-                                "color": true
-                            }
-                        }
+                        "bool": true
                     }
                 }
             }
         },
-        "generalView": {
-            "displayName": "General View",
-            "properties": {
-                "opacity": {
-                    "displayName": "Bars Opacity",
-                    "type": {
-                        "integer": true
+        
+        "legend":{
+
+            "displayName": "data.createDisplayNameGetter('Visual_Legend')",
+                
+                "properties": {
+                    "show": {
+                        "displayName": "data.createDisplayNameGetter('Visual_Show')",
+                        "type": { "bool": true }
+                    },
+
+                    "showTitle": {
+                        "displayName": "data.createDisplayNameGetter('Visual_LegendShowTitle')",
+                        "description": "data.createDisplayNameGetter('Visual_LegendShowTitleDescription')",
+                        "type": { "bool": true }
+                    },
+                    "titleText": {
+                        "displayName": "data.createDisplayNameGetter('Visual_LegendName')",
+                        "description": "data.createDisplayNameGetter('Visual_LegendNameDescription')",
+                        "type": { "text": true }
                     }
                 }
-            }
         }
+        
     }
+    
 }
